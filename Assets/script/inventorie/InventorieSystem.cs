@@ -17,7 +17,7 @@ public class InventorieSystem : MonoBehaviour
     {
         InventorieUI.SetActive(false);
         mouseL = GameObject.Find("keep").GetComponent<mouseLock>();
-        player = GameObject.Find("").GetComponent<Movement>();
+        player = GameObject.Find("Player").GetComponent<Movement>();
     }
 
 
