@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PickUpInteraction : MonoBehaviour
 {
-    [SerializeField] LayerMask itemlayer;
+    [SerializeField] LayerMask itemlayer, weapon;
 
     public KeyCode pickup, drop;
 
@@ -32,9 +32,14 @@ public class PickUpInteraction : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(drop))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 10, weapon))
         {
-            //inventorieSystem.ItemDrop();
+            if (Input.GetKeyDown(pickup))
+            {
+                print(hit.transform.name);
+                inventorieSystem.weaponV(hit.transform.GetComponent<ItemPickup>());
+            }
         }
+
     }
 }

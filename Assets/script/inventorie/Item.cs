@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "create new Item")]
-[System.Serializable]
+[CreateAssetMenu(fileName = "New Item", menuName = "create new Item")]  
 public class Item : ScriptableObject
 {
     public int itemId;
@@ -16,11 +15,14 @@ public class Item : ScriptableObject
 
     public Types type;
 
+    [SerializeField] LayerMask itemlayer;
+
     public enum Types
     {
         test,
         quest,
         item,
+        weapon,
         Ammo,
         healing,
     }
