@@ -20,15 +20,15 @@ public class IinvenClick : MonoBehaviour
         {
             if (mouse.itemInSlot == null)
             {
-                    test = transform.GetComponent<slot>();
+                test = transform.GetComponent<slot>();
 
-                    mouse.amountInSlot = test.amountInSlot;
-                    mouse.itemInSlot = test.itemInSlot;
+                mouse.amountInSlot = test.amountInSlot;
+                mouse.itemInSlot = test.itemInSlot;
 
-                    test.amountInSlot = 0;
-                    test.itemInSlot = null;
+                test.amountInSlot = 0;
+                test.itemInSlot = null;
 
-                    print("test1");
+                print("test1");
             }
 
             else if (transform.GetComponent<slot>().itemInSlot == mouse.itemInSlot)
@@ -44,7 +44,7 @@ public class IinvenClick : MonoBehaviour
 
                     print("test2.1");
                 }
-                    
+
 
                 else
                 {
@@ -55,15 +55,15 @@ public class IinvenClick : MonoBehaviour
             }
         }
 
-        else
+        else if (mouse.itemInSlot != null && transform.gameObject.layer == mouse.itemInSlot.prefap.transform.gameObject.layer)
         {
             transform.GetComponent<slot>().itemInSlot = mouse.itemInSlot;
             transform.GetComponent<slot>().amountInSlot = mouse.amountInSlot;
 
             mouse.itemInSlot = null;
             mouse.amountInSlot = 0;
-
-            print("test3");
         }
+
+        //&& transform.gameObject.layer == mouse.itemInSlot.prefap.transform.gameObject.layer
     }
 }

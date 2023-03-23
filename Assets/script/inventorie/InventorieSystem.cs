@@ -1,23 +1,30 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventorieSystem : MonoBehaviour
 {
-    [SerializeField] public slot[] slots = new slot[8];
-    [SerializeField] public GameObject InventorieUI, mouse;
+    public slot[] slots = new slot[8];
+    public slot weapon1, weapon2;
+    public GameObject InventorieUI, mouse, hand;
     private Movement player;
 
     private mouseLock mouseL;
 
     public KeyCode inv;
 
-    public int i;
+    private int i;
+
+    public LayerMask layer;
 
     private void Start()
     {
         InventorieUI.SetActive(false);
+
         mouseL = GameObject.Find("keep").GetComponent<mouseLock>();
         player = GameObject.Find("Player").GetComponent<Movement>();
+        hand = GameObject.Find("hand");
     }
 
 
@@ -39,9 +46,33 @@ public class InventorieSystem : MonoBehaviour
 
             if (mouse.GetComponent<slot>().amountInSlot != 0)
             {
-                restore(mouse.GetComponent<slot>());
-                mouse.GetComponent<slot>().itemInSlot = null;
-                mouse.GetComponent<slot>().amountInSlot = 0;
+                if (mouse.GetComponent<slot>().itemInSlot.type == Item.Types.weapon)
+                {
+                    if (weapon1.itemInSlot == null)
+                    {
+                        weapon1.itemInSlot = mouse.GetComponent<slot>().itemInSlot;
+                        weapon1.amountInSlot = mouse.GetComponent<slot>().amountInSlot;
+
+                        mouse.GetComponent<slot>().itemInSlot = null;
+                        mouse.GetComponent<slot>().amountInSlot = 0;
+                    }
+
+                    else if (weapon2.itemInSlot == null)
+                    {
+                        weapon2.itemInSlot = mouse.GetComponent<slot>().itemInSlot;
+                        weapon2.amountInSlot = mouse.GetComponent<slot>().amountInSlot;
+
+                        mouse.GetComponent<slot>().itemInSlot = null;
+                        mouse.GetComponent<slot>().amountInSlot = 0;
+                    }
+                }
+
+                else
+                {
+                    restore(mouse.GetComponent<slot>());
+                    mouse.GetComponent<slot>().itemInSlot = null;
+                    mouse.GetComponent<slot>().amountInSlot = 0;
+                }
             }
         }
     }
@@ -144,5 +175,24 @@ public class InventorieSystem : MonoBehaviour
     int RemainingAmount(int index, int amount)
     {
         return (slots[index].amountInSlot + amount - slots[index].itemInSlot.maxStack);
+    }
+
+    public void weaponV(ItemPickup obj)
+    {
+        print(obj.ItemStats.itemId);
+
+        if (weapon1.itemInSlot == null)
+        {
+            weapon1.itemInSlot = obj.ItemStats;
+            weapon1.amountInSlot = obj.amount;
+            Destroy(obj.gameObject);
+        }
+
+        else if (weapon2.itemInSlot == null)
+        {
+            weapon2.itemInSlot = obj.ItemStats;
+            weapon2.amountInSlot = obj.amount;
+            Destroy(obj.gameObject);
+        }
     }
 }

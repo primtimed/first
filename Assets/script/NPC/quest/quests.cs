@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "quest", menuName = "quest")]
 
 public class quests : ScriptableObject
 {
-    public string [] quest;
+    public string [] textNPC;
 
-    public static bool questAccept;
+    public int itemId, amount;
+
+    public int questslide;
 }

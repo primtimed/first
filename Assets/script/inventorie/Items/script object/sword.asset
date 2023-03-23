@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0272a9e30885d746bc4bea970bb7c70, type: 3}
-  m_Name: Test Item
+  m_Name: sword
   m_EditorClassIdentifier: 
-  itemId: 1
-  nameItem: test
+  itemId: 92
+  nameItem: sword
   startStack: 1
-  maxStack: 15
-  icon: {fileID: 2800000, guid: 626b9cddb29049e4cac50cd87b419945, type: 3}
-  prefap: {fileID: 4698993169713043736, guid: 3351fc305a3d4544fbe91cf59502dcb7, type: 3}
-  type: 0
+  maxStack: 1
+  icon: {fileID: 2800000, guid: 1bf671f855044e044a61b16b930c43ef, type: 3}
+  prefap: {fileID: 5657175932693456090, guid: 315ec7dc707281c4e8f6914b6623ea51, type: 3}
+  type: 3
+  itemlayer:
+    serializedVersion: 2
+    m_Bits: 0
