@@ -64,12 +64,9 @@ public class NPC : MonoBehaviour
             if (compl.amount >= compl.quest.amount)
             {
                 look();
-
-                slide = quests[quest].questslide + 4;
-                textMeshPro.text = quests[quest].textNPC[slide];
             }
 
-            else 
+            else if (timer > 5)
             {
                 slide = quests[quest].questslide + 3;
                 textMeshPro.text = quests[quest].textNPC[slide];
@@ -137,6 +134,9 @@ public class NPC : MonoBehaviour
         compl.delete();
 
         compl.amount = 0;
+
+        slide = quests[quest].questslide + 4;
+        textMeshPro.text = quests[quest].textNPC[slide];
 
         await Task.Delay(3000);
 
