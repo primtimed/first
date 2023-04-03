@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemStats: {fileID: 11400000, guid: 181a22fe97437164dbcd4817bced332f, type: 2}
   amount: 1
-  infinitAmmo: 1
+  infinitAmmo: 0
 --- !u!54 &329127387576763701
 Rigidbody:
   m_ObjectHideFlags: 0

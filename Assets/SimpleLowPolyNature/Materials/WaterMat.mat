@@ -12,7 +12,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -52,16 +52,16 @@ Material:
     m_Floats:
     - _Depth: 0.98
     - _DepthFalloff: -13
-    - _Distortion: 0.2
+    - _Distortion: 0
     - _Float0: 0.0192
     - _Float1: 0.85
     - _Float3: 0.9
     - _Foam: 1.79
-    - _FoamDepth: 0.3
-    - _FoamFalloff: -50
+    - _FoamDepth: -1
+    - _FoamFalloff: -1
     - _FoamPower: 4
-    - _FoamSmoothness: 0.3
-    - _FoamSpecular: 0.3
+    - _FoamSmoothness: 0
+    - _FoamSpecular: 0
     - _Foamfalloff: -4
     - _MaskClipValue: 0.5
     - _NormalScale: 0
@@ -70,11 +70,11 @@ Material:
     - _Smoothness: 0.9
     - _Specular: 0.1
     - _TessValue: 6
-    - _WaterDepth: 0.99
-    - _WaterFalloff: -10
-    - _WaterSmoothness: 0.3
-    - _WaterSpecular: 0.3
-    - _WavesAmount: 8
+    - _WaterDepth: 0.27
+    - _WaterFalloff: -1.39
+    - _WaterSmoothness: 0
+    - _WaterSpecular: 0
+    - _WavesAmount: 12
     - _WavesAmplitude: 0.01
     - __dirty: 0
     m_Colors:

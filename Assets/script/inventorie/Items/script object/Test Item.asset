@@ -19,3 +19,6 @@ MonoBehaviour:
   icon: {fileID: 2800000, guid: 626b9cddb29049e4cac50cd87b419945, type: 3}
   prefap: {fileID: 4698993169713043736, guid: 3351fc305a3d4544fbe91cf59502dcb7, type: 3}
   type: 0
+  itemlayer:
+    serializedVersion: 2
+    m_Bits: 8
