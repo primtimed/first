@@ -31,7 +31,7 @@ public class QuestComp : MonoBehaviour
         {
             activeQuest.text = quest.textNPC[quest.questslide];
 
-            for (int i = 0; i < inv.slots.Length; i++)
+            for (i = 0; i < inv.slots.Length; i++)
             {
                 if (inv.slots[i].itemInSlot != null && inv.slots[i].itemInSlot.itemId == quest.itemId)
                 {

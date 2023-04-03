@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class MovementRB : MonoBehaviour
 {
     //Keybind
-    public KeyCode sprint, jump, croush;
-    public KeyCode spect;
+    public KeyCode sprint, jump, croush, spect;
 
     //Movement
     public float movespeed;
     private float hor, vert;
-    private Vector3 MoveV3;
+    private Vector3 moveV3;
 
     //Rotation
     public float sens;
     private float mousex, mousey;
-    private Vector3 MouseV3;
+    private Vector3 mouseV3;
     private GameObject cam;
 
     //Sprint   
@@ -27,7 +26,7 @@ public class Movement : MonoBehaviour
     private bool grounded;
     private RaycastHit ground;
     private Rigidbody rb;
-    private Vector3 JumpV3;
+    private Vector3 jumpV3;
 
     //Spectaiter
     public bool spectate;
@@ -35,8 +34,8 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         speedlock = movespeed;
-        JumpV3.y = jumphight;
-        MouseV3.z = 0;
+        jumpV3.y = jumphight;
+        mouseV3.z = 0;
 
         cam = GameObject.Find("Main Camera");
         rb = GetComponent<Rigidbody>();
@@ -46,7 +45,7 @@ public class Movement : MonoBehaviour
     {
         Rotation();
         Sprint();
-        movement();
+        Movement();
 
 
         if (spectate == true)
@@ -71,19 +70,19 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void movement()
+    private void Movement()
     {
         hor = Input.GetAxis("Horizontal");
         vert = Input.GetAxis("Vertical");
 
         if (grounded)
         {
-            MoveV3.x = hor;
+            moveV3.x = hor;
         }
 
-        MoveV3.z = vert;
+        moveV3.z = vert;
 
-        transform.Translate(MoveV3* Time.deltaTime * movespeed);
+        rb.AddForce(moveV3* Time.deltaTime * movespeed);
     }
 
     private void Rotation()
@@ -91,11 +90,11 @@ public class Movement : MonoBehaviour
         mousex = Input.GetAxis("Mouse X") * sens;
         mousey = Input.GetAxis("Mouse Y") * sens;
 
-        MouseV3.x = mousex;
-        MouseV3.y = mousey;
+        mouseV3.x = mousex;
+        mouseV3.y = mousey;
 
-        cam.transform.Rotate(-MouseV3.y, 0, 0 * Time.deltaTime);
-        transform.Rotate(0, MouseV3.x, 0 * Time.deltaTime);
+        cam.transform.Rotate(-mouseV3.y, 0, 0 * Time.deltaTime);
+        transform.Rotate(0, mouseV3.x, 0 * Time.deltaTime);
     }
 
     private void Sprint()
@@ -122,7 +121,7 @@ public class Movement : MonoBehaviour
 
             if (Input.GetKeyDown(jump))
             {
-                rb.AddForce(JumpV3 * jumphight, ForceMode.Impulse);
+                rb.AddForce(jumpV3 * jumphight, ForceMode.Impulse);
             }
         }
 
@@ -138,17 +137,17 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(jump))
         {
-            MoveV3.y = 1;
+            moveV3.y = 1;
         }
 
         else if (Input.GetKey(croush))
         {
-            MoveV3.y = -1;
+            moveV3.y = -1;
         }
 
         else
         {
-            MoveV3.y = 0;
+            moveV3.y = 0;
         }
     }
 }

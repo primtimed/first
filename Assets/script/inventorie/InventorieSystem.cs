@@ -7,7 +7,7 @@ public class InventorieSystem : MonoBehaviour
 {
     public slot[] slots = new slot[8];
     public slot weapon1, weapon2;
-    public GameObject InventorieUI, mouse, hand;
+    public GameObject inventorieUI, mouse, hand;
     private Movement player;
 
     private mouseLock mouseL;
@@ -20,7 +20,7 @@ public class InventorieSystem : MonoBehaviour
 
     private void Start()
     {
-        InventorieUI.SetActive(false);
+        inventorieUI.SetActive(false);
 
         mouseL = GameObject.Find("keep").GetComponent<mouseLock>();
         player = GameObject.Find("Player").GetComponent<Movement>();
@@ -30,16 +30,16 @@ public class InventorieSystem : MonoBehaviour
 
     private void Update()
     {
-        if (!InventorieUI.activeInHierarchy && Input.GetKeyDown(inv))
+        if (!inventorieUI.activeInHierarchy && Input.GetKeyDown(inv))
         {
-            InventorieUI.SetActive(true);
+            inventorieUI.SetActive(true);
             player.enabled = false;
             mouseL.isLocked = false;
         }
 
-        else if (InventorieUI.activeInHierarchy && Input.GetKeyDown(inv) || Input.GetKeyDown(KeyCode.Escape))
+        else if (inventorieUI.activeInHierarchy && Input.GetKeyDown(inv) || Input.GetKeyDown(KeyCode.Escape))
         {
-            InventorieUI.SetActive(false);
+            inventorieUI.SetActive(false);
             player.enabled = true;
             mouseL.isLocked = true;
 
@@ -69,7 +69,7 @@ public class InventorieSystem : MonoBehaviour
 
                 else
                 {
-                    restore(mouse.GetComponent<slot>());
+                    Restore(mouse.GetComponent<slot>());
                     mouse.GetComponent<slot>().itemInSlot = null;
                     mouse.GetComponent<slot>().amountInSlot = 0;
                 }
@@ -123,7 +123,7 @@ public class InventorieSystem : MonoBehaviour
         }
     }    
     
-    public void restore(slot obj)
+    public void Restore(slot obj)
     {
         for (int i = 0; i < slots.Length; i++)
         {
@@ -140,7 +140,7 @@ public class InventorieSystem : MonoBehaviour
                     int result = NeededToFill(i);
                     obj.amountInSlot = RemainingAmount(i, obj.amountInSlot);
                     slots[i].amountInSlot += result;
-                    restore(obj);
+                    Restore(obj);
                     return;
                 }
             }
