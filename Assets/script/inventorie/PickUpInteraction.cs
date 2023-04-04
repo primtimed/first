@@ -9,12 +9,14 @@ public class PickUpInteraction : MonoBehaviour
 
     public KeyCode pickup, drop;
 
-    private GameObject cam;
+    private GameObject cam, bridgeBorder;
     private InventorieSystem inventorieSystem;
 
     private void Start()
     {
         cam = GameObject.Find("Main Camera");
+        bridgeBorder = GameObject.Find("bridge border");
+
         inventorieSystem = GameObject.Find("keep").GetComponent<InventorieSystem>();
     }
 
@@ -37,6 +39,12 @@ public class PickUpInteraction : MonoBehaviour
             {
                 print(hit.transform.name);
                 inventorieSystem.weaponV(hit.transform.GetComponent<ItemPickup>());
+                
+                if(hit.transform.name == "sword")
+                {
+                    //bridgeBorder.GetComponent<Collider>().isTrigger = true;
+                    Destroy(bridgeBorder);
+                }
             }
         }
 
