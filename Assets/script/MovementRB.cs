@@ -10,7 +10,7 @@ public class MovementRB : MonoBehaviour
     //Movement
     public float movespeed;
     private float hor, vert;
-    private Vector3 moveV3;
+    public Vector3 moveV3;
 
     //Rotation
     public float sens;
@@ -81,8 +81,9 @@ public class MovementRB : MonoBehaviour
         }
 
         moveV3.z = vert;
-
-        rb.AddForce(moveV3* Time.deltaTime * movespeed);
+                                      
+        rb.velocity = (transform.forward * vert) * Time.deltaTime * movespeed * 250;
+        rb.velocity = (transform.right * hor) * Time.deltaTime * movespeed * 250;
     }
 
     private void Rotation()
