@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0272a9e30885d746bc4bea970bb7c70, type: 3}
+  m_Name: Rock
+  m_EditorClassIdentifier: 
+  itemId: 5
+  nameItem: Rock
+  startStack: 1
+  maxStack: 15
+  icon: {fileID: 2800000, guid: 0592b9a60df035645b98f351e8855dd7, type: 3}
+  prefap: {fileID: 1617883316540385198, guid: 59f7765117ede6a45954c3140e77d057, type: 3}
+  type: 1
+  itemlayer:
+    serializedVersion: 2
+    m_Bits: 136
