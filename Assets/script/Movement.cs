@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Movement : MonoBehaviour
     public float movespeed;
     private float hor, vert;
     private Vector3 MoveV3;
+    private RaycastHit face;
 
     //Rotation
     public float sens;
@@ -79,6 +81,16 @@ public class Movement : MonoBehaviour
         if (grounded)
         {
             MoveV3.x = hor;
+        }
+
+        Debug.DrawRay(transform.position, transform.forward * 1.01f, Color.green);
+
+        if (Physics.Raycast(transform.position, transform.forward, out face, .5f) && face.transform.tag != "weapon")
+        {
+            if (vert > 0)
+            {
+                vert = 0;
+            }
         }
 
         MoveV3.z = vert;

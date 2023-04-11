@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - water
+  - Enemy
+  - FxTemporaire
+  - Character
+  - King
+  - End
+  - weapon
   layers:
   - Default
   - TransparentFX

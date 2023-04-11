@@ -24,7 +24,7 @@ public class PickUpInteraction : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 10, itemlayer))
+        if (cam != null && Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 10, itemlayer))
         {
             if (Input.GetKeyDown(pickup))
             {
@@ -33,7 +33,7 @@ public class PickUpInteraction : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 10, weapon))
+        if (cam != null && Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 10, weapon))
         {
             if (Input.GetKeyDown(pickup))
             {

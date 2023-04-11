@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ab815b5b2aaf5b14a862f0aec03b2194, type: 3}
+      propertyPath: m_TagString
+      value: weapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab815b5b2aaf5b14a862f0aec03b2194, type: 3}
 --- !u!1 &5657175932693456090 stripped

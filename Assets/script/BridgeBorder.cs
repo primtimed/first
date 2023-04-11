@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class BridgeBorder : MonoBehaviour
 {
-    private TextMeshProUGUI ui;
-
-    public string text;
+    private GameObject ui;
 
     private void Start()
     {
-       ui = GameObject.Find("TextMiddelScreen").GetComponent<TextMeshProUGUI>(); 
+        ui = GameObject.Find("MiddleText");
+
+        ui.SetActive(false);
     }
 
     private async void OnCollisionEnter(Collision collision)
     {
-        ui.text = text;
-
+        ui.SetActive(true);
         await Task.Delay(5000);
-
-        ui.text = null;
+        ui.SetActive(false);
     }
 }

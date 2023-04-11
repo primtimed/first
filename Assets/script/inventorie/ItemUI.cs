@@ -29,7 +29,10 @@ public class ItemUI : MonoBehaviour
 
     private void Update()
     {
-        distence = Vector3.Distance(gameObject.transform.position, player.transform.position);
+        if (player != null)
+        {
+            distence = Vector3.Distance(gameObject.transform.position, player.transform.position);
+        }
 
         if (distence < 5)
         {

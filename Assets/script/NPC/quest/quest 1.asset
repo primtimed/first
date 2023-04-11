@@ -16,11 +16,11 @@ MonoBehaviour:
   - Hello adventurer. Isn't it it a nice day.
   - Dan you help me with someting for me?
   - Collect the sword and rescue the king.
-  - rescue the king and bring him back.
+  - rescue the king from the slimes.
   - thank you. I will wait here for you.
   - Oke if you change your mind you know whare to find me.
   - You have a open quest
   - tnx for you help adventurer.
   itemId: 0
-  amount: 10
+  amount: 1
   questslide: 3

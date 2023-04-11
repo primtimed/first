@@ -35,6 +35,8 @@ public class InventorieSystem : MonoBehaviour
             inventorieUI.SetActive(true);
             player.enabled = false;
             mouseL.isLocked = false;
+
+            Time.timeScale = 0;
         }
 
         else if (inventorieUI.activeInHierarchy && Input.GetKeyDown(inv) || Input.GetKeyDown(KeyCode.Escape))
@@ -42,6 +44,8 @@ public class InventorieSystem : MonoBehaviour
             inventorieUI.SetActive(false);
             player.enabled = true;
             mouseL.isLocked = true;
+
+            Time.timeScale = 1;
 
 
             if (mouse.GetComponent<slot>().amountInSlot != 0)

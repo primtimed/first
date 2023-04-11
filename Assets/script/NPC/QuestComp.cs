@@ -16,8 +16,15 @@ public class QuestComp : MonoBehaviour
 
     private TextMeshProUGUI activeQuest, have, need;
 
+    private GameObject panel;
+
+    public bool questComplead;
+
+    private RaycastHit hit;
+
     private void Start()
     {
+        panel = GameObject.Find("QuestPanel");
         have = GameObject.Find("have").GetComponent<TextMeshProUGUI>();
         need = GameObject.Find("need").GetComponent<TextMeshProUGUI>();
         activeQuest = GameObject.Find("Active quest").GetComponentInChildren<TextMeshProUGUI>();
@@ -29,28 +36,62 @@ public class QuestComp : MonoBehaviour
     {
         if (quest != null)
         {
+            if (Physics.Raycast(GameObject.Find("Main Camera").transform.position, GameObject.Find("Main Camera").transform.forward, out hit, 2) && Input.GetKeyDown(KeyCode.E))
+            {
+                if (hit.transform.tag == "King")
+                {
+                    questComplead = true;
+                }
+            }
+        }
+
+        if (questComplead == true)
+        {
+            if (Physics.Raycast(GameObject.Find("Main Camera").transform.position, GameObject.Find("Main Camera").transform.forward, out hit, 2) && Input.GetKeyDown(KeyCode.E))
+            {
+                if (hit.transform.tag == "End")
+                {
+                    print("complead");
+                }
+            }
+        }
+
+        if (quest != null && questComplead == false)
+        {
             activeQuest.text = quest.textNPC[quest.questslide];
 
-            for (i = 0; i < inv.slots.Length; i++)
+            panel.SetActive(true);
+
+            for (i = 0; i < inv.slots.Length;)
             {
+                i++;
+
                 if (inv.slots[i].itemInSlot != null && inv.slots[i].itemInSlot.itemId == quest.itemId)
                 {
                     amount = inv.slots[i].amountInSlot;
                 }
 
-                have.text = amount.ToString();
-                need.text = quest.amount.ToString();
+                //have.text = amount.ToString();
+                //need.text = quest.amount.ToString();
 
                 return;
             }
         }
 
-        else
+        else if (quest == null && questComplead == false)
         {
+            panel.SetActive(false);
             have.text = null;
             need.text = null;
             activeQuest.text = null;
         } 
+
+        if (questComplead == true)
+        {
+            quest = null;
+
+            activeQuest.text = "repear the boat and escape with the king";
+        }
     }
 
     public void delete()

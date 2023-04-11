@@ -40,7 +40,7 @@ public class NPC : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (Vector3.Distance(player.transform.position, transform.position) < 5 && timer > 5 && questAccept == false)
+        if (player != null && Vector3.Distance(player.transform.position, transform.position) < 5 && timer > 5 && questAccept == false)
         {
             player.SetActive(false);
             npcCam.SetActive(true);
@@ -59,7 +59,7 @@ public class NPC : MonoBehaviour
             }
         }
 
-        else if (Vector3.Distance(player.transform.position, transform.position) < 5 && questAccept == true)
+        else if (player != null && Vector3.Distance(player.transform.position, transform.position) < 5 && questAccept == true)
         {
             if (compl.amount >= compl.quest.amount)
             {
@@ -79,9 +79,12 @@ public class NPC : MonoBehaviour
 
         else
         {
-            player.SetActive(true);
-            npcCam.SetActive(false);
+            if (player != null)
+            {
+                player.SetActive(true);
+            }
 
+            npcCam.SetActive(false);
             yesorno.SetActive(false);
         }
     }
