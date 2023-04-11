@@ -87,6 +87,7 @@ public class Movement : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out face, .5f) && face.transform.tag != "weapon")
         {
+            print("Block");
             if (vert > 0)
             {
                 vert = 0;

@@ -21,6 +21,11 @@ public class SettingsScript : MonoBehaviour
             mouse = GameObject.Find("keep").GetComponent<mouseLock>();
             movement = GameObject.Find("Player").GetComponent<Movement>();
         }
+
+        else
+        {
+            GameObject.Find("keep").GetComponent<mouseLock>().isLocked = false;
+        }
     }
 
     private void Update()

@@ -1587,6 +1587,7 @@ Transform:
   m_Children:
   - {fileID: 1751819280}
   - {fileID: 1642275758}
+  - {fileID: 2026608050}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -162.456, z: 0}
@@ -2539,6 +2540,7 @@ GameObject:
   - component: {fileID: 245967622}
   - component: {fileID: 245967624}
   - component: {fileID: 245967623}
+  - component: {fileID: 245967625}
   m_Layer: 0
   m_Name: hand
   m_TagString: Untagged
@@ -2586,6 +2588,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.75, y: 4, z: 5.47}
   m_Center: {x: 0, y: 0, z: 2.5}
+--- !u!95 &245967625
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245967621}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b1d76b05add46f44292ade654065b4c7, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2a273885002161b41aedce560ee03642, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &250162427
 GameObject:
   m_ObjectHideFlags: 0
@@ -17045,6 +17067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock5
       objectReference: {fileID: 0}
+    - target: {fileID: 1486726653596827074, guid: daf661d478fbcbf4791f00721500cb43, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf661d478fbcbf4791f00721500cb43, type: 3}
 --- !u!1001 &1600814820
@@ -20840,6 +20866,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024907510}
   m_CullTransparentMesh: 1
+--- !u!1 &2026608049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2026608050}
+  m_Layer: 0
+  m_Name: KingSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2026608050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026608049}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.28, y: 0, z: 1.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 99765289}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2038829446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21895,6 +21952,9 @@ MonoBehaviour:
   inv: {fileID: 0}
   quest: {fileID: 0}
   amount: 0
+  panel: {fileID: 0}
+  king: {fileID: 0}
+  spawnKing: {fileID: 0}
   questComplead: 0
 --- !u!114 &2113927307
 MonoBehaviour:

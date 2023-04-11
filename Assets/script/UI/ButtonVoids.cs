@@ -53,6 +53,13 @@ public class ButtonVoids : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void Victory()
+    {
+        print("go");
+        SceneManager.LoadScene(sceneName: "End Screen");
+        Time.timeScale = 1;
+    }
+
     public void FullScreenV()
     {
         if (Screen.fullScreenMode == FullScreenMode.Windowed)

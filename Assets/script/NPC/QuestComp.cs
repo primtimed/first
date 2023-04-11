@@ -16,7 +16,7 @@ public class QuestComp : MonoBehaviour
 
     private TextMeshProUGUI activeQuest, have, need;
 
-    private GameObject panel;
+    public GameObject panel, king, spawnKing;
 
     public bool questComplead;
 
@@ -25,6 +25,9 @@ public class QuestComp : MonoBehaviour
     private void Start()
     {
         panel = GameObject.Find("QuestPanel");
+        king = GameObject.Find("King");
+        spawnKing = GameObject.Find("KingSpawn");
+
         have = GameObject.Find("have").GetComponent<TextMeshProUGUI>();
         need = GameObject.Find("need").GetComponent<TextMeshProUGUI>();
         activeQuest = GameObject.Find("Active quest").GetComponentInChildren<TextMeshProUGUI>();
@@ -40,6 +43,7 @@ public class QuestComp : MonoBehaviour
             {
                 if (hit.transform.tag == "King")
                 {
+                    print("King");
                     questComplead = true;
                 }
             }
@@ -52,6 +56,8 @@ public class QuestComp : MonoBehaviour
                 if (hit.transform.tag == "End")
                 {
                     print("complead");
+
+                    GameObject.Find("keep").GetComponent<ButtonVoids>().Victory();
                 }
             }
         }
@@ -88,9 +94,11 @@ public class QuestComp : MonoBehaviour
 
         if (questComplead == true)
         {
+            panel.SetActive(false);
+            activeQuest.text = null;
             quest = null;
 
-            activeQuest.text = "repear the boat and escape with the king";
+            king.transform.position = spawnKing.transform.position;
         }
     }
 

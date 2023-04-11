@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class mouseLock : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class mouseLock : MonoBehaviour
         Cursor.visible = false;
 
         isLocked = true;
+
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            GameObject.Find("keep").GetComponent<mouseLock>().isLocked = false;
+        }
     }
     private void Update()
     {

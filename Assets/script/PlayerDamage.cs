@@ -5,30 +5,32 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
-    private void Update()
+    private async void Update()
     {
-        if (Input.GetMouseButtonDown(0) && GameObject.Find("Player").GetComponent<PlayerAI>().weapon != null)
+        if (Input.GetMouseButtonDown(0) && GameObject.Find("Player").GetComponent<PlayerAI>().weapon != null == GameObject.Find("Player").GetComponent<PlayerAI>().swing == false)
         {
             GetComponent<Collider>().enabled = true;
+            GetComponent<Animator>().enabled = true;
+
+            GameObject.Find("Player").GetComponent<PlayerAI>().swing = true;
+
+            await Task.Delay(333);
+
+            GameObject.Find("Player").GetComponent<PlayerAI>().swing = false;
         }
 
-        else 
+        else if (GameObject.Find("Player").GetComponent<PlayerAI>().swing == false)
         { 
             GetComponent<Collider>().enabled = false;
+            GetComponent<Animator>().enabled = false;
         }
     }
 
-    private async void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        GameObject.Find("Player").GetComponent<PlayerAI>().swing = true;
-
         if (other.transform.tag == "Enemy")
         {
             other.GetComponent<EnemyAI>().hp -= 1;
         }
-
-        await Task.Delay(2500);
-
-        GameObject.Find("Player").GetComponent<PlayerAI>().swing = false;
     }
 }
